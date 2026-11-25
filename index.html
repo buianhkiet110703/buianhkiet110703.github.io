@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Anh Kiet Bui (Alex): Data Analyst, Analytics Engineer and BI in Warsaw. SQL, dbt, Power BI and Python projects.">
+<meta property="og:title" content="Anh Kiet Bui · Data Analyst">
+<meta property="og:description" content="SQL, dbt, Power BI and Python portfolio. Based in Warsaw.">
+<title>Anh Kiet Bui · Data Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+<style>
+/* VOICE occasion: a personal site that wins a recruiter in one glance, confident not loud
+   IDEA an exhibition catalogue of one analyst: the person is the show, each project a printed plate
+   PICTURE a live vermilion flow field (data in motion) under the name, portrait set into it; real dashboards as plates
+   COLOUR white ground, near-black ink, vermilion #ff4a1c as the one mass; night: vermilion on #120d0b
+   TYPE Be Vietnam Pro 900 for the name and titles, 400/500 for text (full Vietnamese diacritics)
+   LAYOUT name across the top with intro and buttons on its right, the field full-bleed beneath; phone: name, field, intro */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#120d0b);--ink:light-dark(#111111,#f4ece6);--mute:light-dark(#5c5650,#b3a79e);--acc:#ff4a1c;--soft:light-dark(#fff1ec,#24140f);--line:light-dark(#e7e1dc,#33231d);--card:light-dark(#ffffff,#1a110e)}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Be Vietnam Pro",system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+img{max-width:100%;display:block}
+.band{padding-block:clamp(36px,5vw,80px);padding-inline:max(5vw,16px)}
+.wrap{max-width:1240px;margin-inline:auto}
+h1,h2,h3{font-weight:900;line-height:1.05;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h2{font-size:clamp(32px,4.4vw,52px);margin-bottom:28px}
+h3{font-size:21px;font-weight:800}
+p{margin:0 0 12px}
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;padding:10px max(5vw,16px)}
+.logo{font-weight:900;font-size:20px;text-decoration:none;margin-right:auto;display:flex;align-items:center;gap:10px}
+.logo i{width:14px;height:14px;border-radius:50%;background:var(--acc);display:inline-block}
+nav .links{display:flex;flex-wrap:wrap;gap:4px 18px}
+nav .links a{text-decoration:none;font-weight:500;color:var(--mute);padding:8px 0}
+nav .links a:hover,nav .links a:focus-visible{color:var(--ink)}
+.lang{display:flex;border:1.5px solid var(--line);border-radius:999px;padding:3px}
+.lang button{min-width:44px;min-height:36px;border:0;border-radius:999px;background:transparent;color:var(--mute);font:600 14px "Be Vietnam Pro",sans-serif;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font:600 16px "Be Vietnam Pro",sans-serif;text-decoration:none;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.main{background:var(--acc);border-color:var(--acc);color:#fff}
+.btn:focus-visible,.chip:focus-visible,.proj:focus-visible,.lang button:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.hero{padding-bottom:0}
+.top{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px 56px;align-items:end}
+.name{font-size:clamp(52px,8.6vw,118px);line-height:.95}
+.role{font-size:clamp(19px,2.1vw,25px);font-weight:600;margin-top:16px}
+.role b{color:var(--acc)}
+.intro p{color:var(--mute);font-size:17px;max-width:44ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.field{position:relative;height:clamp(260px,40vh,420px);margin-top:clamp(28px,4vw,48px);margin-inline:calc(-1*max(5vw,16px));background:var(--soft);overflow:hidden}
+.field canvas{position:absolute;inset:0;width:100%;height:100%}
+.portrait{position:absolute;right:max(5vw,16px);bottom:24px;width:clamp(120px,16vw,200px);aspect-ratio:1;border-radius:50%;border:6px solid var(--bg);overflow:hidden;background:#fff}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.avail{position:absolute;left:max(5vw,16px);bottom:24px;max-width:calc(100% - 200px);background:var(--bg);border-radius:18px;padding:10px 18px;font-weight:600;font-size:15px;display:flex;align-items:center;gap:10px}
+.avail i{flex:none;width:10px;height:10px;border-radius:50%;background:#1fb26b;box-shadow:0 0 0 4px color-mix(in srgb,#1fb26b 25%,transparent)}
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px 64px}
+.about p{color:var(--mute)}
+.about .lead{font-size:clamp(20px,2vw,24px);line-height:1.45;font-weight:500;color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;align-self:start}
+.facts div{background:var(--bg);padding:20px}
+.facts b{display:block;font-size:clamp(30px,3.4vw,42px);font-weight:900;color:var(--acc);line-height:1.1;white-space:nowrap}
+.facts span{color:var(--mute);font-size:15px}
+.exp{background:var(--ink);color:var(--bg)}
+.exp .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px 64px}
+.exp h2{color:var(--bg)}
+.exp .note{color:color-mix(in srgb,var(--bg) 70%,var(--ink))}
+.exp .side h4{font-size:15px;margin:28px 0 8px;color:var(--acc)}
+.exp .side .cta{margin:4px 0 8px}
+.exp .btn.ghost{border-color:var(--bg);color:var(--bg)}
+.exp .certs{margin:0}
+.exp .certs li{border-top:1px solid color-mix(in srgb,var(--bg) 22%,var(--ink))}
+.exp .sub{font-size:15px;font-weight:700;color:var(--acc);margin:0 0 4px;letter-spacing:0}
+.exp .sub+.jobs{margin-bottom:28px}
+@media(min-width:901px){.exp .side{position:sticky;top:90px;align-self:start}}
+.jobs{list-style:none;margin:0;padding:0}
+.jobs>li{display:grid;grid-template-columns:10em minmax(0,1fr);gap:8px 24px;padding:24px 0;border-top:1px solid color-mix(in srgb,var(--bg) 22%,var(--ink))}
+.jobs .when{font-weight:600;color:var(--acc)}
+.jobs h3{margin-bottom:4px}
+.jobs .co{font-weight:500;margin-bottom:8px}
+.jobs ul{margin:0;padding-left:18px;color:color-mix(in srgb,var(--bg) 75%,var(--ink))}
+.jobs ul li{padding:3px 0}
+.jobs .badge{display:inline-flex;gap:8px;align-items:center;margin-top:12px;background:var(--acc);color:#fff;border-radius:999px;padding:6px 14px;font-weight:600;font-size:14px;text-decoration:none}
+.award-band{background:radial-gradient(55% 75% at 72% 50%,rgba(255,74,28,.42),transparent 72%),#140e0c;color:#f4ece6}
+.award{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.5fr);gap:40px 56px;align-items:center}
+.award .txt{display:flex;flex-direction:column;gap:8px}
+.award .txt p{color:#c9bcb3}
+.award .txt .btn.main{align-self:flex-start}
+.ceremony{width:100%;aspect-ratio:4/3;object-fit:cover;border:8px solid #fff;border-radius:6px;margin-top:22px;box-shadow:0 24px 48px -18px rgba(0,0,0,.8)}
+.stage{position:relative;padding:24px 0 12px}
+.cert{width:78%;border:12px solid #fff;border-radius:4px;box-shadow:0 34px 70px -22px rgba(0,0,0,.85)}
+.trophy{position:absolute;right:0;bottom:-6px;height:108%;max-height:500px;width:auto;filter:drop-shadow(0 24px 22px rgba(0,0,0,.65))}
+.stage::after{content:"";position:absolute;left:4%;right:-2%;bottom:-8px;height:2px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent)}
+.award .yr{font-size:clamp(48px,6vw,80px);font-weight:900;color:var(--acc);line-height:1}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px}
+.sk{border:1px solid var(--line);border-radius:18px;padding:22px}
+.sk h3{font-size:18px;margin-bottom:14px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{background:var(--soft);border-radius:999px;padding:5px 13px;font-size:14px;font-weight:500}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:-8px 0 24px}
+.chip{min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:500 15px "Be Vietnam Pro",sans-serif;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:24px}
+.proj{display:flex;flex-direction:column;text-align:left;border:1px solid var(--line);border-radius:22px;background:var(--card);overflow:hidden;cursor:pointer;padding:0;color:var(--ink);font:inherit;transition:transform .2s,border-color .2s}
+.proj:hover{transform:translateY(-4px);border-color:var(--acc)}
+.plate{aspect-ratio:16/10;background:var(--soft);display:block;width:100%}
+.shot{object-fit:cover;object-position:top left;background:#0e1626}
+.shot.contain{object-fit:contain;object-position:center;background:#fff;padding:12px}
+.proj .body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.proj p{color:var(--mute);margin:0}
+.proj .more{margin-top:auto;font-weight:600;color:var(--acc)}
+.proj.wide{grid-column:1/-1}
+.stats{display:flex;flex-wrap:wrap;gap:8px 22px}
+.stats b{display:block;font-size:22px;font-weight:900;color:var(--acc);line-height:1.1;white-space:nowrap}
+.stats span{font-size:13px;color:var(--mute)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:14px;font-weight:600}
+.flow span{background:var(--soft);border-radius:8px;padding:4px 10px}
+.flow i{font-style:normal;color:var(--acc)}
+.empty{color:var(--mute)}
+.cv{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:32px 56px;align-items:start}
+.sheet{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:clamp(22px,3vw,36px);box-shadow:0 24px 0 -12px var(--acc);font-size:14.5px;line-height:1.5}
+.sheet h3{font-size:26px}
+.sheet .r{color:var(--acc);font-weight:600;margin:4px 0 6px}
+.sheet .c{color:var(--mute);overflow-wrap:anywhere}
+.sheet h4{font-size:14px;margin:18px 0 6px;padding-bottom:4px;border-bottom:1px solid var(--line);color:var(--acc)}
+.sheet .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:2px 12px;padding:3px 0}
+.sheet .row span:last-child{color:var(--mute);white-space:nowrap}
+.certs{list-style:none;padding:0;margin:20px 0 0}
+.certs li{border-top:1px solid var(--line)}
+.certs a{display:flex;justify-content:space-between;gap:12px;padding:14px 0;text-decoration:none;font-weight:600}
+.certs a span{color:var(--acc)}
+.contact{background:var(--acc);color:#fff}
+.contact h2{color:#fff;font-size:clamp(40px,6vw,76px);max-width:13ch}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px 56px;align-items:end}
+.ways{list-style:none;padding:0;margin:0}
+.ways li{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:14px 0;border-top:1px solid rgba(255,255,255,.4);font-size:17px}
+.ways span{opacity:.85}
+.ways a,.ways b{font-weight:600;overflow-wrap:anywhere}
+footer{padding:24px max(5vw,16px);color:var(--mute);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+dialog{border:0;border-radius:22px;padding:0;max-width:min(760px,calc(100vw - 32px));width:100%;background:var(--card);color:var(--ink)}
+dialog::backdrop{background:rgba(10,6,4,.6)}
+dialog .body{padding:24px clamp(20px,3vw,32px) 28px}
+dialog h3{font-size:30px;margin-bottom:10px}
+dialog h4{margin:18px 0 4px;font-size:17px}
+dialog ul{padding-left:20px;margin:8px 0 16px}
+dialog .shot{aspect-ratio:auto;height:auto;object-fit:contain;border-bottom:1px solid var(--line)}
+.x{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:0;background:var(--bg);color:var(--ink);font-size:22px;cursor:pointer;z-index:2}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,140px);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:999px;font-weight:600;transition:transform .3s;z-index:50;max-width:calc(100vw - 32px)}
+.toast.on{transform:translate(-50%,0)}
+@media(min-width:900px){.proj.wide{flex-direction:row}.proj.wide .plate{width:56%;aspect-ratio:auto;min-height:360px}.proj.wide .body{width:44%;padding:28px 30px}.proj.wide h3{font-size:28px}}
+@media(max-width:900px){.top,.about,.exp .wrap,.cv,.contact .wrap{grid-template-columns:minmax(0,1fr)}.award{grid-template-columns:minmax(0,1fr)}.award .stage{order:-1}}
+@media(max-width:600px){nav .links{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap}nav .links a{flex:none}.jobs>li{grid-template-columns:minmax(0,1fr)}.avail{font-size:13px;padding:8px 12px;max-width:calc(100% - 150px)}.cert{width:82%;border-width:7px}.trophy{height:96%}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#top"><i></i>Alex Bui</a>
+  <div class="links"><a href="#about" data-i="nAbout"></a><a href="#experience" data-i="nExp"></a><a href="#projects" data-i="nProj"></a><a href="#resume" data-i="nCv"></a><a href="#contact" data-i="nContact"></a></div>
+  <div class="lang" role="group" aria-label="Language"><button type="button" data-l="en">EN</button><button type="button" data-l="vi">VI</button></div>
+</div></nav>
+
+<header class="band hero" id="top"><div class="wrap">
+  <div class="top">
+    <div>
+      <h1 class="name" data-i="name"></h1>
+      <div class="role">Data Analyst · <b>Analytics Engineer · BI</b></div>
+    </div>
+    <div class="intro">
+      <p data-i="tag"></p>
+      <div class="cta"><a class="btn main" href="#projects" data-i="bProj"></a><a class="btn" href="#resume" data-i="bCv"></a></div>
+    </div>
+  </div>
+  <div class="field" id="field">
+    <canvas id="flow" aria-hidden="true"></canvas>
+    <div class="avail"><i></i><span data-i="avail"></span></div>
+    <div class="portrait"><img src="portrait.webp" alt="Anh Kiet Bui (Alex)"></div>
+  </div>
+</div></header>
+
+<section class="band" id="about"><div class="wrap">
+  <h2 data-i="hAbout"></h2>
+  <div class="about">
+    <div><p class="lead" data-i="lead"></p><p data-i="about1"></p><p data-i="about2"></p></div>
+    <div class="facts" id="facts"></div>
+  </div>
+</div></section>
+
+<section class="band exp" id="experience"><div class="wrap">
+  <div class="side"><h2 data-i="hExp"></h2><p class="note" data-i="expNote"></p>
+    <div class="cta"><button class="btn main" type="button" data-dl data-i="bDl"></button></div></div>
+  <ul class="jobs" id="jobs"></ul>
+</div></section>
+
+<section class="band award-band" id="award"><div class="wrap award">
+  <div class="txt">
+    <div class="yr">2025</div>
+    <h3 style="font-size:clamp(26px,2.8vw,36px)">The Attitude Key of the Year</h3>
+    <p data-i="awardTxt"></p>
+    <a class="btn main" href="https://lnkd.in/p/dqTKKJ9Y" data-i="awardBtn"></a>
+    <img class="ceremony" src="award_stage.webp" alt="Inter-K award ceremony" loading="lazy">
+  </div>
+  <div class="stage">
+    <img class="cert" src="certificate.webp" alt="Attitude Key of the Year 2025 certificate" loading="lazy">
+    <img class="trophy" src="trophy.webp" alt="Attitude Key of the Year 2025 trophy" loading="lazy">
+  </div>
+</div></section>
+
+<section class="band" style="padding-top:0"><div class="wrap">
+  <h2 data-i="hSkills"></h2>
+  <div class="skills" id="skills"></div>
+</div></section>
+
+<section class="band" id="projects" style="background:var(--soft)"><div class="wrap">
+  <h2 data-i="hProj"></h2>
+  <div class="filters" id="filters" role="group" aria-label="Filter"></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="band" id="resume"><div class="wrap cv">
+  <div class="sheet" id="sheet"></div>
+  <div>
+    <h2 data-i="hCv"></h2>
+    <p style="color:var(--mute);font-size:17px" data-i="cvTxt"></p>
+    <div class="cta"><button class="btn main" type="button" data-dl data-i="bDl"></button><button class="btn" type="button" id="copyMail" data-i="bCopy"></button><a class="btn" href="https://www.linkedin.com/in/bui-anh-kiet-alex-74a98a25b/">LinkedIn</a></div>
+    <ul class="certs" id="certs"></ul>
+  </div>
+</div></section>
+
+<section class="band contact" id="contact"><div class="wrap">
+  <h2 data-i="hContact"></h2>
+  <ul class="ways" id="ways"></ul>
+</div></section>
+
+<footer><span>© 2026 Anh Kiet Bui (Alex)</span><a href="#top" data-i="up"></a></footer>
+
+<dialog id="dlg"><button class="x" type="button" id="close" aria-label="Close">×</button><div id="dlgBody"></div></dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+{
+const GH="https://github.com/buianhkiet110703/";
+const EMAIL="kietbui113116@gmail.com";
+const LI="https://www.linkedin.com/in/bui-anh-kiet-alex-74a98a25b/";
+const T={
+en:{nAbout:"About",nExp:"Experience",nProj:"Projects",nCv:"Resume",nContact:"Contact",name:"Anh Kiet Bui",
+tag:"I turn messy operational data into tested models, clear dashboards and decisions people can act on. 2+ years in data analytics, now studying for a Master's in Big Data at SGH Warsaw.",
+bProj:"See projects",bCv:"View resume",avail:"Open to Data Analyst / BI roles in Warsaw",
+hAbout:"About me",lead:"A data analyst who works end to end: SQL and dbt to model and test the data, Power BI to show it, Python to dig deeper and automate the checks.",
+about1:"At Inter-K I followed sales orders from entry through billing and delivery, traced data discrepancies across systems to their root cause, and wrote Python validation that cut manual checking by 20%.",
+about2:"Before that, at Hello Health Group, I analysed traffic and content performance on digital health platforms in BigQuery and built Looker Studio and Power BI dashboards for the product team.",
+hExp:"Experience",expNote:"Where I have worked and studied.",hSkills:"Skills",hProj:"Projects",all:"All",more:"View details →",empty:"No projects with this tool yet.",
+awardTxt:"Awarded by Inter-K in February 2026 for exceptional and dedicated performance throughout 2025.",awardBtn:"Read the LinkedIn post",
+hCv:"Resume",cvTxt:"A one-page summary of my resume. Download the full PDF with the button below.",bCopy:"Copy email",bDl:"Download CV (PDF)",waH:"Work authorization",dlOk:"CV downloaded",dlNo:"Download is unavailable here. Email me and I will send the PDF.",
+hContact:"Let's turn data into decisions.",up:"Back to top ↑",copied:"Copied: ",code:"Source on GitHub",
+exp:"Experience",edu:"Education",skl:"Skills",lng:"Languages",crt:"Certificates",
+wa:"Legal to work full-time or part-time in Poland, no work permit required",ph:"Phone",loc:"Location"},
+vi:{nAbout:"Giới thiệu",nExp:"Kinh nghiệm",nProj:"Dự án",nCv:"CV",nContact:"Liên hệ",name:"Bùi Anh Kiệt",
+tag:"Tôi biến dữ liệu vận hành lộn xộn thành mô hình đã kiểm thử, dashboard rõ ràng và những quyết định có thể hành động ngay. Hơn 2 năm làm phân tích dữ liệu, hiện học Thạc sĩ Big Data tại SGH Warsaw.",
+bProj:"Xem dự án",bCv:"Xem CV",avail:"Sẵn sàng cho vị trí Data Analyst / BI tại Warsaw",
+hAbout:"Giới thiệu",lead:"Data Analyst làm việc end-to-end: SQL và dbt để mô hình hoá và kiểm thử dữ liệu, Power BI để trình bày, Python để đào sâu và tự động hoá việc kiểm tra.",
+about1:"Ở Inter-K, tôi theo dõi vòng đời đơn hàng từ lúc nhập tới xuất hoá đơn và giao hàng, truy nguyên nhân các sai lệch dữ liệu giữa các hệ thống, và viết script Python kiểm tra dữ liệu giúp giảm 20% công kiểm tra thủ công.",
+about2:"Trước đó, ở Hello Health Group, tôi phân tích lưu lượng truy cập và hiệu quả nội dung của các nền tảng sức khoẻ số trên BigQuery, đồng thời dựng dashboard Looker Studio và Power BI cho đội sản phẩm.",
+hExp:"Kinh nghiệm",expNote:"Những nơi tôi đã làm việc và học tập.",hSkills:"Kỹ năng",hProj:"Dự án",all:"Tất cả",more:"Xem chi tiết →",empty:"Chưa có dự án nào dùng công cụ này.",
+awardTxt:"Inter-K trao tặng vào tháng 2/2026 để ghi nhận tinh thần và hiệu quả làm việc xuất sắc trong suốt năm 2025.",awardBtn:"Xem bài đăng LinkedIn",
+hCv:"CV",cvTxt:"Bản tóm tắt CV trên một trang. Tải bản PDF đầy đủ bằng nút bên dưới.",bCopy:"Sao chép email",bDl:"Tải CV (PDF)",waH:"Quyền làm việc",dlOk:"Đã tải CV",dlNo:"Không tải được ở đây. Hãy email cho tôi để nhận bản PDF.",
+hContact:"Cùng biến dữ liệu thành quyết định.",up:"Lên đầu trang ↑",copied:"Đã sao chép: ",code:"Mã nguồn GitHub",
+exp:"Kinh nghiệm",edu:"Học vấn",skl:"Kỹ năng",lng:"Ngôn ngữ",crt:"Chứng chỉ",
+wa:"Được phép làm việc toàn thời gian hoặc bán thời gian tại Ba Lan, không cần giấy phép lao động",ph:"Điện thoại",loc:"Nơi ở"}
+};
+const FACTS=[["2+",{en:"years working with data",vi:"năm làm việc với dữ liệu"}],["20%",{en:"less manual data checking",vi:"giảm công kiểm tra thủ công"}],["C1",{en:"professional English",vi:"tiếng Anh chuyên nghiệp"}],["2025",{en:"Attitude Key of the Year, Inter-K",vi:"Attitude Key of the Year, Inter-K"}]];
+const JOBS=[
+ {when:{en:"Mar 2025 – Sep 2026",vi:"03/2025 – 09/2026"},t:"Data Analyst & Analytics Engineer",co:"Inter-K JSC · Vietnam",award:1,pts:{
+  en:["Monitored end-to-end sales order lifecycles, from order entry through billing and delivery, and turned operational rules into monitoring logic","Investigated data discrepancies across systems with advanced SQL, found root causes and worked with business teams to remove bottlenecks","Prepared daily and monthly reports and KPI dashboards for commercial, finance and management teams","Built Python scripts for pre-report validation and anomaly flagging, cutting manual verification by 20%","Bridged data and business teams to clarify rules, define data requirements and support onboarding"],
+  vi:["Theo dõi vòng đời đơn hàng từ lúc nhập tới xuất hoá đơn và giao hàng, chuyển quy tắc vận hành thành logic giám sát","Dùng SQL nâng cao để điều tra sai lệch dữ liệu giữa các hệ thống, tìm nguyên nhân gốc và phối hợp với các phòng ban gỡ điểm nghẽn","Làm báo cáo ngày/tháng và dashboard KPI cho các nhóm kinh doanh, tài chính và ban quản lý","Viết script Python kiểm tra dữ liệu trước khi báo cáo và gắn cờ bất thường, giảm 20% công kiểm tra thủ công","Làm cầu nối giữa đội dữ liệu và đội kinh doanh để làm rõ quy tắc, xác định yêu cầu dữ liệu và hỗ trợ đào tạo nội bộ"]}},
+ {when:{en:"May – Nov 2023",vi:"05/2023 – 11/2023"},t:"Data Analyst Intern",co:"Hello Health Group · Vietnam",pts:{
+  en:["Queried and analysed large-scale user engagement, web traffic and content performance data in Google BigQuery","Built Looker Studio and Power BI dashboards on consumer health metrics, content reach and user acquisition","Automated data syncs between Google Sheets and cloud tables with Python and Google Apps Script"],
+  vi:["Truy vấn và phân tích dữ liệu tương tác người dùng, lưu lượng web và hiệu quả nội dung quy mô lớn trên Google BigQuery","Dựng dashboard Looker Studio và Power BI theo dõi chỉ số người dùng, độ phủ nội dung và tăng trưởng người dùng","Tự động hoá đồng bộ dữ liệu giữa Google Sheets và bảng trên cloud bằng Python và Google Apps Script"]}},
+ {when:{en:"Expected Sep 2028",vi:"Dự kiến 09/2028"},t:"Master of Advanced Analytics – Big Data",co:"SGH Warsaw School of Economics · Poland",pts:{en:[],vi:[]}},
+ {when:{en:"Bachelor",vi:"Cử nhân"},t:{en:"Bachelor of Business Administration",vi:"Cử nhân Quản trị Kinh doanh"},co:"HUTECH University · Vietnam · GPA 3.17/4.0",pts:{en:[],vi:[]}}
+];
+const SKILLS=[
+ [{en:"SQL & data",vi:"SQL & dữ liệu"},["Advanced SQL","Databricks SQL","BigQuery","MS SQL Server","dbt","DuckDB",{en:"Data quality testing",vi:"Kiểm thử chất lượng dữ liệu"}]],
+ [{en:"BI & reporting",vi:"BI & báo cáo"},["Power BI","DAX","Power Query","Looker Studio","Advanced Excel",{en:"KPI & SLA tracking",vi:"Theo dõi KPI & SLA"}]],
+ [{en:"Python & automation",vi:"Python & tự động hoá"},["pandas","NumPy","scikit-learn","Matplotlib","Seaborn","Google Apps Script"]],
+ [{en:"Analysis & business",vi:"Phân tích & nghiệp vụ"},[{en:"Root-cause investigation",vi:"Truy tìm nguyên nhân gốc"},{en:"Process analysis",vi:"Phân tích quy trình"},{en:"Business requirements",vi:"Yêu cầu nghiệp vụ"},{en:"Data governance",vi:"Quản trị dữ liệu"},{en:"Stakeholder communication",vi:"Giao tiếp với các bên liên quan"}]]
+];
+const PROJ=[
+ {wide:1,t:{en:"Olist: from raw data to dashboard",vi:"Olist: từ dữ liệu thô tới dashboard"},img:"olist_overview.webp",img2:"olist_delivery.webp",tags:["SQL & dbt","Power BI"],
+  d:{en:"One end-to-end project in two linked repos. A SQL/dbt pipeline cleans, models and tests 9 raw CSV files from a Brazilian marketplace and exports Parquet. A 6-page Power BI report reads those files to track sales, customers, delivery, sellers, payments and reviews.",vi:"Một dự án end-to-end gồm hai repo nối liền nhau. Pipeline SQL/dbt làm sạch, mô hình hoá và kiểm thử 9 file CSV của một sàn thương mại điện tử Brazil, rồi xuất ra Parquet. Báo cáo Power BI 6 trang đọc thẳng các file đó để theo dõi doanh thu, khách hàng, giao hàng, người bán, thanh toán và đánh giá."},
+  stats:[["99.4K",{en:"orders",vi:"đơn hàng"}],["61",{en:"dbt data tests",vi:"data test dbt"}],["6",{en:"report pages",vi:"trang báo cáo"}],["1:1",{en:"KPIs match source",vi:"KPI khớp dữ liệu gốc"}]],
+  parts:[[{en:"Part 1 · SQL / dbt pipeline",vi:"Phần 1 · Pipeline SQL / dbt"},{en:["Staging → intermediate → marts, with types cast once in staging","Moved 20+ DAX calculated columns into SQL, so the DAX became far simpler","Analytics marts: RFM segments, cohort retention, seller Pareto scorecard","dbt build: 85 nodes pass in 8.5 s, including a revenue reconciliation test"],vi:["3 tầng staging → intermediate → marts, ép kiểu dữ liệu một lần ở staging","Chuyển hơn 20 cột tính toán DAX sang SQL, DAX đơn giản hẳn","Mart phân tích: phân khúc RFM, cohort retention, seller scorecard theo Pareto","dbt build: 85 node PASS trong 8,5 giây, có test đối soát doanh thu"]}],
+         [{en:"Part 2 · Power BI dashboard",vi:"Phần 2 · Dashboard Power BI"},{en:["Star schema with separate fact and dimension tables","50+ KPIs, each card compared with the previous year","Delivery page links late deliveries to lower review scores","Six pages in one theme with a shared page navigator"],vi:["Star schema tách bạch bảng fact và dimension","Hơn 50 KPI, mỗi thẻ so sánh với cùng kỳ năm trước","Trang Delivery cho thấy giao trễ kéo điểm đánh giá xuống","6 trang cùng giao diện, điều hướng bằng menu chung"]}]],
+  links:[[{en:"dbt pipeline repo",vi:"Repo pipeline dbt"},GH+"-SQL-_dbt_data_pipeline"],[{en:"Power BI dashboard repo",vi:"Repo dashboard Power BI"},GH+"Olist_Dashboard-Power-BI-"]]},
+ {t:{en:"Credit risk: Home Credit",vi:"Rủi ro tín dụng: Home Credit"},img:"risk_segments.webp",img2:"risk_ext.webp",contain:1,tags:["Python","Machine Learning"],
+  d:{en:"Analysis of 307,511 loan applications to find what drives default, plus a simple, explainable scorecard that splits clients into risk tiers.",vi:"Phân tích 307.511 hồ sơ vay để tìm yếu tố dẫn tới vỡ nợ, kèm mô hình chấm điểm đơn giản, dễ giải thích, chia khách hàng thành các nhóm rủi ro."},
+  stats:[["0.74","ROC AUC"],["11×",{en:"default gap by credit score",vi:"chênh lệch vỡ nợ theo điểm tín dụng"}],["50%",{en:"of defaults in riskiest 20%",vi:"ca vỡ nợ nằm trong 20% rủi ro nhất"}]],
+  pts:{en:["Cleaned 122 columns, fixed placeholder values and capped outliers","Built DTI, LTV-style, age and employment features used in real credit checks","Left gender and age out of the model as protected attributes","Recommended a 3-tier approval path based on the score"],vi:["Làm sạch 122 cột, xử lý giá trị giữ chỗ và ngoại lai","Tạo biến DTI, LTV, tuổi, số năm làm việc như trong thẩm định thật","Loại giới tính và tuổi khỏi mô hình vì là thuộc tính nhạy cảm","Đề xuất quy trình duyệt vay 3 tầng theo điểm rủi ro"]},gh:GH+"EDA_BANKING_RISK"},
+ {t:{en:"Profit prediction",vi:"Dự báo lợi nhuận"},art:"bars",tags:["Python","Machine Learning"],
+  d:{en:"Compared 10+ regression models to predict profit on 9,994 orders of a US retailer, 2014–2018.",vi:"So sánh hơn 10 mô hình hồi quy để dự báo lợi nhuận từ 9.994 đơn hàng của một nhà bán lẻ Mỹ, 2014–2018."},
+  stats:[["0.82",{en:"best R²",vi:"R² tốt nhất"}],["10+",{en:"models compared",vi:"mô hình so sánh"}]],
+  pts:{en:["Engineered order-to-ship days","MinMax scaling and one-hot encoding","Tuned each model with GridSearchCV","Bagging with decision trees performed best"],vi:["Tạo biến số ngày từ đặt hàng tới giao hàng","Chuẩn hoá MinMax, one-hot encoding biến phân loại","Tinh chỉnh tham số từng mô hình bằng GridSearchCV","Bagging với Decision Tree cho kết quả tốt nhất"]},gh:GH+"REGRESSION"},
+ {t:{en:"Country clustering",vi:"Phân cụm quốc gia"},art:"dots",tags:["Python","Machine Learning"],
+  d:{en:"Grouped countries by GDP per capita, life expectancy and related indicators, comparing three clustering methods.",vi:"Phân nhóm các quốc gia theo GDP đầu người, tuổi thọ và các chỉ số liên quan, so sánh ba phương pháp phân cụm."},
+  stats:[["3",{en:"country groups",vi:"cụm quốc gia"}],["3",{en:"methods compared",vi:"thuật toán so sánh"}]],
+  pts:{en:["Chose k with Elbow, Silhouette and KneeLocator","Compared K-Means, hierarchical and Gaussian mixture","Mapped clusters on a choropleth","Linked CO₂, clean water and obesity to life expectancy"],vi:["Chọn số cụm bằng Elbow, Silhouette và KneeLocator","So sánh K-Means, Hierarchical và Gaussian Mixture","Vẽ bản đồ choropleth theo cụm","Phân tích quan hệ CO₂, nước sạch, béo phì với tuổi thọ"]},gh:GH+"CLUSTERING"},
+ {t:{en:"Bitcoin price forecasting",vi:"Dự báo giá Bitcoin"},art:"line",tags:["Python","Machine Learning"],
+  d:{en:"Forecast Bitcoin's adjusted close with ARIMA and an LSTM network, then projected six months ahead.",vi:"Dự báo giá đóng cửa điều chỉnh của Bitcoin bằng ARIMA và mạng LSTM, rồi dự phóng 6 tháng tiếp theo."},
+  stats:[["2",{en:"models",vi:"mô hình"}],["6",{en:"months projected",vi:"tháng dự phóng"}]],
+  pts:{en:["ACF/PACF analysis and auto_arima order search","Rolling one-step ARIMA(5,2,0) forecasts","LSTM with 100 units on a 10-day window","Predicted vs actual price on the test set"],vi:["Phân tích ACF/PACF, chọn tham số bằng auto_arima","Dự báo từng bước với ARIMA(5,2,0)","LSTM 100 unit với cửa sổ 10 ngày","So sánh giá dự báo và thực tế trên tập kiểm tra"]},gh:GH+"TIME-SERIES"}
+];
+const CERTS=[["Google Data Analytics","https://www.coursera.org/account/accomplishments/professional-cert/HNK4H8MUSY6Q"],["HackerRank SQL","https://www.hackerrank.com/certificates/9fa5750fb323"],["freeCodeCamp Data Analysis with Python","https://www.freecodecamp.org/certification/fcc2214f015-eb7f-4465-b2a2-01a6b18cab80/data-analysis-with-python-v7"]];
+const LANGS={en:"English C1 · Polish elementary (learning) · Vietnamese native",vi:"Tiếng Anh C1 · Tiếng Ba Lan sơ cấp (đang học) · Tiếng Việt bản ngữ"};
+
+let lang="en";try{const s=localStorage.getItem("lang");if(s==="vi"||s==="en")lang=s}catch(e){}
+const $=s=>document.querySelector(s);
+const esc=v=>String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const L=x=>x&&typeof x==="object"&&!Array.isArray(x)?x[lang]:x;
+const t=k=>T[lang][k];
+let cur="*";
+
+const plate=(p,i,big)=>{
+  if(p.img&&!big)return '<img class="plate shot'+(p.contain?' contain':'')+'" src="'+esc(p.img)+'" alt="'+esc(L(p.t))+'" loading="lazy">';
+  if(p.img)return [p.img,p.img2].filter(Boolean).map(s=>'<img class="plate shot" src="'+esc(s)+'" alt="'+esc(L(p.t))+'">').join("");
+  let s=(i+3)*9301+49297;const r=()=>(s=s*16807%2147483647)/2147483647;let g="";
+  if(p.art==="bars"){[.82,.75,.7,.62,.55,.4,.28,.15,.04].forEach((x,k)=>{g+='<rect x="40" y="'+(24+k*33)+'" width="'+(20+x*520)+'" height="22" rx="4" fill="var(--acc)" opacity="'+(1-k*.08).toFixed(2)+'"/>'})}
+  else if(p.art==="dots"){const c=[[170,200],[330,120],[460,230]];for(let k=0;k<120;k++){const q=c[k%3],a=r()*6.28,d=r()*70;g+='<circle cx="'+(q[0]+Math.cos(a)*d*1.3).toFixed(1)+'" cy="'+(q[1]+Math.sin(a)*d).toFixed(1)+'" r="'+(4+r()*7).toFixed(1)+'" fill="var(--acc)" opacity="'+[1,.6,.3][k%3]+'"/>'}}
+  else{let d="M0 260",y=260;const pts=[];for(let x=0;x<=600;x+=12){y=Math.max(30,Math.min(300,y-(r()-.42)*30));pts.push([x,y]);d+=" L"+x+" "+y.toFixed(1)}
+    g+='<path d="'+d+' L600 340 L0 340Z" fill="var(--acc)" opacity=".18"/><path d="'+d+'" fill="none" stroke="var(--acc)" stroke-width="4"/><path d="'+pts.filter(q=>q[0]>=420).map((q,k)=>(k?"L":"M")+q[0]+" "+(q[1]+(r()-.5)*24).toFixed(1)).join(" ")+'" fill="none" stroke="var(--ink)" stroke-width="3" stroke-dasharray="8 8"/>'}
+  return '<svg class="plate" viewBox="0 0 600 340" preserveAspectRatio="xMidYMid meet" aria-hidden="true">'+g+'</svg>';
+};
+const flow='<div class="flow">'+["CSV","DuckDB","dbt + tests","Parquet","Power BI"].map(x=>'<span>'+x+'</span>').join('<i>→</i>')+'</div>';
+const statRow=p=>'<div class="stats">'+p.stats.map(x=>'<div><b>'+esc(x[0])+'</b><span>'+esc(L(x[1]))+'</span></div>').join("")+'</div>';
+const tags=a=>'<div class="tags">'+a.map(x=>'<span class="tag">'+esc(L(x))+'</span>').join("")+'</div>';
+const row=j=>'<div class="row"><span><b>'+esc(L(j.t))+'</b>, '+esc(j.co.split(" · ")[0])+'</span><span>'+esc(L(j.when))+'</span></div>';
+
+const renderProj=()=>{
+  const all=["*",...new Set(PROJ.flatMap(p=>p.tags))];
+  $("#filters").innerHTML=all.map(x=>'<button class="chip" type="button" aria-pressed="'+(x===cur)+'" data-t="'+esc(x)+'">'+esc(x==="*"?t("all"):x)+'</button>').join("");
+  const list=PROJ.map((p,i)=>[p,i]).filter(([p])=>cur==="*"||p.tags.includes(cur));
+  $("#grid").innerHTML=list.length?list.map(([p,i])=>'<button class="proj'+(p.wide&&cur==="*"?' wide':'')+'" type="button" data-i="'+i+'">'+plate(p,i)+'<div class="body"><h3>'+esc(L(p.t))+'</h3>'+(p.wide?flow:'')+'<p>'+esc(L(p.d))+'</p>'+statRow(p)+tags(p.tags)+'<span class="more">'+esc(t("more"))+'</span></div></button>').join(""):'<p class="empty">'+esc(t("empty"))+'</p>';
+};
+
+const render=()=>{
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-i]").forEach(el=>{el.textContent=t(el.dataset.i)});
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===lang));
+  $("#facts").innerHTML=FACTS.map(f=>'<div><b>'+esc(f[0])+'</b><span>'+esc(L(f[1]))+'</span></div>').join("");
+  const jobLi=j=>'<li><div class="when">'+esc(L(j.when))+'</div><div><h3>'+esc(L(j.t))+'</h3><div class="co">'+esc(j.co)+'</div>'+(L(j.pts).length?'<ul>'+L(j.pts).map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul>':'')+(j.award?'<a class="badge" href="#award">★ Attitude Key of the Year 2025</a>':'')+'</div></li>';
+  $("#jobs").innerHTML=JOBS.map(jobLi).join("");
+  $("#sheet").innerHTML='<h3>Anh Kiet Bui (Alex)</h3><div class="r">Analytics Engineering · Data Analyst · Business Intelligence</div><div class="c">Warsaw, Poland · +48 503 369 182 · '+esc(EMAIL)+'</div><div class="c">'+esc(t("wa"))+'</div>'+
+    '<h4>'+esc(t("exp"))+'</h4>'+JOBS.slice(0,2).map(row).join("")+
+    '<h4>'+esc(t("edu"))+'</h4>'+JOBS.slice(2).map(row).join("")+
+    '<h4>'+esc(t("skl"))+'</h4><div>SQL (Databricks, BigQuery, MS SQL Server) · dbt · Power BI, DAX, Power Query · Looker Studio · Advanced Excel · Python (pandas) · Google Apps Script</div>'+
+    '<h4>'+esc(t("lng"))+'</h4><div>'+esc(LANGS[lang])+'</div>'+
+    '<h4>'+esc(t("crt"))+'</h4><div>'+CERTS.map(c=>esc(c[0])).join(" · ")+'</div>';
+  $("#skills").innerHTML=SKILLS.map(s=>'<div class="sk"><h3>'+esc(L(s[0]))+'</h3>'+tags(s[1])+'</div>').join("");
+  renderProj();
+  $("#certs").innerHTML=CERTS.map(c=>'<li><a href="'+esc(c[1])+'">'+esc(c[0])+'<span>↗</span></a></li>').join("");
+  $("#ways").innerHTML=[["Email",EMAIL,"mailto:"+EMAIL],[t("ph"),"+48 503 369 182","tel:+48503369182"],["LinkedIn","Bui Anh Kiet (Alex)",LI],["GitHub","buianhkiet110703",GH],[t("loc"),"Warsaw, Poland",""]].map(w=>'<li><span>'+esc(w[0])+'</span>'+(w[2]?'<a href="'+esc(w[2])+'">'+esc(w[1])+'</a>':'<b>'+esc(w[1])+'</b>')+'</li>').join("");
+};
+render();
+
+document.querySelector(".lang").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;lang=b.dataset.l;try{localStorage.setItem("lang",lang)}catch(err){}render()});
+$("#filters").addEventListener("click",e=>{const b=e.target.closest(".chip");if(b){cur=b.dataset.t;renderProj()}});
+const dlg=$("#dlg");
+$("#grid").addEventListener("click",e=>{
+  const b=e.target.closest(".proj");if(!b)return;const i=+b.dataset.i,p=PROJ[i];
+  const body=p.parts?flow+p.parts.map(q=>'<h4>'+esc(L(q[0]))+'</h4><ul>'+L(q[1]).map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul>').join(""):'<ul>'+L(p.pts).map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul>';
+  const links=p.links?p.links.map((l,k)=>'<a class="btn'+(k?'':' main')+'" href="'+esc(l[1])+'">'+esc(L(l[0]))+'</a>').join(""):'<a class="btn main" href="'+esc(p.gh)+'">'+esc(t("code"))+'</a>';
+  $("#dlgBody").innerHTML=plate(p,i,true)+'<div class="body"><h3>'+esc(L(p.t))+'</h3><p>'+esc(L(p.d))+'</p>'+statRow(p)+body+tags(p.tags)+'<div class="cta">'+links+'</div></div>';
+  try{dlg.showModal()}catch(err){dlg.setAttribute("open","")}
+});
+$("#close").addEventListener("click",()=>dlg.close());
+dlg.addEventListener("click",e=>{if(e.target===dlg)dlg.close()});
+
+const toast=$("#toast");let tt;
+const say=m=>{toast.textContent=m;toast.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove("on"),2400)};
+document.querySelectorAll("[data-dl]").forEach(btn=>btn.addEventListener("click",()=>{const a=document.createElement("a");a.href="Anh_Kiet_Bui_Resume.pdf";a.download="Anh_Kiet_Bui_Resume.pdf";document.body.appendChild(a);a.click();a.remove()}));
+$("#copyMail").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(EMAIL);say(t("copied")+EMAIL)}catch(e){say(EMAIL)}});
+
+/* live flow field: data in motion, bends away from the pointer */
+const field=$("#field"),cv=$("#flow"),ctx=cv.getContext("2d");
+const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+let W=0,H=0,pts=[],mx=-999,my=-999,tm=0;
+const size=()=>{const d=Math.min(2,devicePixelRatio||1);W=field.clientWidth;H=field.clientHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);pts=Array.from({length:Math.round(W*H/900)},()=>({x:Math.random()*W,y:Math.random()*H,l:Math.random()*200}))};
+const ang=(x,y)=>Math.sin(x*.0042+tm)*1.6+Math.cos(y*.006-tm*.7)*1.4+Math.sin((x+y)*.002)*1.2;
+const step=()=>{
+  ctx.globalCompositeOperation="destination-out";ctx.fillStyle="rgba(0,0,0,.06)";ctx.fillRect(0,0,W,H);
+  ctx.globalCompositeOperation="source-over";ctx.strokeStyle="#ff4a1c";ctx.lineWidth=1.6;ctx.beginPath();
+  for(const p of pts){
+    const a=ang(p.x,p.y);let vx=Math.cos(a)*1.4,vy=Math.sin(a)*1.4;
+    const dx=p.x-mx,dy=p.y-my,d2=dx*dx+dy*dy;
+    if(d2<16000){const f=(16000-d2)/16000*4,n=Math.sqrt(d2+1);vx+=dx/n*f;vy+=dy/n*f}
+    ctx.moveTo(p.x,p.y);p.x+=vx;p.y+=vy;ctx.lineTo(p.x,p.y);
+    if(--p.l<0||p.x<0||p.x>W||p.y<0||p.y>H){p.x=Math.random()*W;p.y=Math.random()*H;p.l=100+Math.random()*200}
+  }
+  ctx.stroke();tm+=.0025;
+};
+const loop=()=>{step();requestAnimationFrame(loop)};
+const ro=new ResizeObserver(()=>{size();if(still)for(let i=0;i<160;i++)step()});
+ro.observe(field);
+field.addEventListener("pointermove",e=>{const b=field.getBoundingClientRect();mx=e.clientX-b.left;my=e.clientY-b.top});
+field.addEventListener("pointerleave",()=>{mx=my=-999});
+if(!still)requestAnimationFrame(loop);
+}
+</script>
+</body>
+</html>
