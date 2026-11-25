@@ -46,11 +46,15 @@ nav .links a:hover,nav .links a:focus-visible{color:var(--ink)}
 .btn.main{background:var(--acc);border-color:var(--acc);color:#fff}
 .btn:focus-visible,.chip:focus-visible,.proj:focus-visible,.lang button:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
 .hero{padding-bottom:0}
-.top{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px 56px;align-items:end}
+.top{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:24px 56px;align-items:center}
 .name{font-size:clamp(52px,8.6vw,118px);line-height:.95}
 .role{font-size:clamp(19px,2.1vw,25px);font-weight:600;margin-top:16px}
 .role b{color:var(--acc)}
-.intro p{color:var(--mute);font-size:17px;max-width:44ch}
+.intro p{color:var(--mute);font-size:17px;max-width:52ch}
+.intro p:first-of-type{color:var(--ink)}
+.open{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;padding:8px 16px;border-radius:999px;background:light-dark(#e6f6ee,#12301f);color:light-dark(#0b6b3c,#86e3b3);font-weight:600;font-size:15px}
+.open i{flex:none;width:9px;height:9px;border-radius:50%;background:#1fb26b;box-shadow:0 0 0 4px color-mix(in srgb,#1fb26b 25%,transparent)}
+.stack{margin-top:4px}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
 .field{position:relative;height:clamp(260px,40vh,420px);margin-top:clamp(28px,4vw,48px);margin-inline:calc(-1*max(5vw,16px));background:var(--soft);overflow:hidden}
 .field canvas{position:absolute;inset:0;width:100%;height:100%}
@@ -172,6 +176,8 @@ dialog .shot{aspect-ratio:auto;height:auto;object-fit:contain;border-bottom:1px 
     </div>
     <div class="intro">
       <p data-i="tag"></p>
+      <p data-i="tag2"></p>
+      <div class="tags stack"><span class="tag">SQL</span><span class="tag">dbt</span><span class="tag">Power BI</span><span class="tag">Python</span><span class="tag">BigQuery</span><span class="tag">Databricks</span></div>
       <div class="cta"><a class="btn main" href="#projects" data-i="bProj"></a><a class="btn" href="#resume" data-i="bCv"></a></div>
     </div>
   </div>
@@ -248,7 +254,7 @@ const EMAIL="kietbui113116@gmail.com";
 const LI="https://www.linkedin.com/in/bui-anh-kiet-alex-74a98a25b/";
 const T={
 en:{nAbout:"About",nExp:"Experience",nProj:"Projects",nCv:"Resume",nContact:"Contact",name:"Anh Kiet Bui",
-tag:"I turn messy operational data into tested models, clear dashboards and decisions people can act on. 2+ years in data analytics, now studying for a Master's in Big Data at SGH Warsaw.",
+open:"Open to work in Poland · full-time or part-time",tag:"I'm a Data Analyst and Analytics Engineer who turns messy operational data into tested models, clear dashboards and decisions people can act on. Over 2+ years I have reconciled sales, billing and delivery data across systems, automated the checks that keep reports right, and built Power BI and Looker Studio dashboards for finance, commercial and product teams.",tag2:"I take ownership of every number I publish and stay with a problem until it reconciles, which earned me Inter-K's Attitude Key of the Year 2025. Now based in Warsaw and studying for a Master's in Big Data at SGH, I'm looking for a team in Poland where I can bring the same care.",
 bProj:"See projects",bCv:"View resume",avail:"Open to Data Analyst / BI roles in Warsaw",
 hAbout:"About me",lead:"A data analyst who works end to end: SQL and dbt to model and test the data, Power BI to show it, Python to dig deeper and automate the checks.",
 about1:"At Inter-K I followed sales orders from entry through billing and delivery, traced data discrepancies across systems to their root cause, and wrote Python validation that cut manual checking by 20%.",
@@ -260,7 +266,7 @@ hContact:"Let's turn data into decisions.",up:"Back to top ↑",copied:"Copied: 
 exp:"Experience",edu:"Education",skl:"Skills",lng:"Languages",crt:"Certificates",
 wa:"Legal to work full-time or part-time in Poland, no work permit required",ph:"Phone",loc:"Location"},
 vi:{nAbout:"Giới thiệu",nExp:"Kinh nghiệm",nProj:"Dự án",nCv:"CV",nContact:"Liên hệ",name:"Bùi Anh Kiệt",
-tag:"Tôi biến dữ liệu vận hành lộn xộn thành mô hình đã kiểm thử, dashboard rõ ràng và những quyết định có thể hành động ngay. Hơn 2 năm làm phân tích dữ liệu, hiện học Thạc sĩ Big Data tại SGH Warsaw.",
+open:"Sẵn sàng làm việc tại Ba Lan · toàn thời gian hoặc bán thời gian",tag:"Tôi là Data Analyst và Analytics Engineer, biến dữ liệu vận hành lộn xộn thành mô hình đã kiểm thử, dashboard rõ ràng và những quyết định có thể hành động ngay. Hơn 2 năm qua, tôi đối soát dữ liệu bán hàng, hoá đơn và giao hàng giữa nhiều hệ thống, tự động hoá các bước kiểm tra để báo cáo luôn đúng, và xây dashboard Power BI, Looker Studio cho các đội tài chính, kinh doanh và sản phẩm.",tag2:"Tôi chịu trách nhiệm với từng con số mình đưa ra và theo vấn đề tới khi số liệu khớp, điều đó giúp tôi nhận giải Attitude Key of the Year 2025 tại Inter-K. Hiện tôi sống ở Warsaw, đang học Thạc sĩ Big Data tại SGH, và tìm một đội ngũ ở Ba Lan để tiếp tục cống hiến với tinh thần đó.",
 bProj:"Xem dự án",bCv:"Xem CV",avail:"Sẵn sàng cho vị trí Data Analyst / BI tại Warsaw",
 hAbout:"Giới thiệu",lead:"Data Analyst làm việc end-to-end: SQL và dbt để mô hình hoá và kiểm thử dữ liệu, Power BI để trình bày, Python để đào sâu và tự động hoá việc kiểm tra.",
 about1:"Ở Inter-K, tôi theo dõi vòng đời đơn hàng từ lúc nhập tới xuất hoá đơn và giao hàng, truy nguyên nhân các sai lệch dữ liệu giữa các hệ thống, và viết script Python kiểm tra dữ liệu giúp giảm 20% công kiểm tra thủ công.",
