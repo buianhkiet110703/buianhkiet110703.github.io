@@ -117,6 +117,7 @@ nav .links a:hover,nav .links a:focus-visible{color:var(--ink)}
 .proj:hover{transform:translateY(-4px);border-color:var(--acc)}
 .plate{aspect-ratio:16/10;background:var(--soft);display:block;width:100%}
 .shot{object-fit:cover;object-position:top left;background:#0e1626}
+.shot.lineage{background:#fff}
 .shot.contain{object-fit:contain;object-position:center;background:#fff;padding:12px}
 .proj .body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
 .proj p{color:var(--mute);margin:0}
@@ -309,7 +310,7 @@ const SKILLS=[
  [{en:"Analysis & business",pl:"Analiza i biznes"},[{en:"Root-cause investigation",pl:"Analiza przyczyn źródłowych"},{en:"Process analysis",pl:"Analiza procesów"},{en:"Business requirements",pl:"Wymagania biznesowe"},{en:"Data governance",pl:"Data governance"},{en:"Stakeholder communication",pl:"Komunikacja z interesariuszami"}]]
 ];
 const PROJ=[
- {wide:1,t:{en:"Olist: from raw data to dashboard",pl:"Olist: od surowych danych do dashboardu"},img:"olist_overview.webp",img2:"olist_delivery.webp",tags:["SQL & dbt","Power BI"],
+ {wide:1,t:{en:"Olist: from raw data to dashboard",pl:"Olist: od surowych danych do dashboardu"},img:"olist_overview.webp",img2:"olist_delivery.webp",imgDbt:"olist_lineage.svg",tags:["SQL & dbt","Power BI"],
   d:{en:"One end-to-end project in two linked repos. A SQL/dbt pipeline cleans, models and tests 9 raw CSV files from a Brazilian marketplace and exports Parquet. A 6-page Power BI report reads those files to track sales, customers, delivery, sellers, payments and reviews.",pl:"Jeden projekt end-to-end w dwóch powiązanych repozytoriach. Pipeline SQL/dbt czyści, modeluje i testuje 9 surowych plików CSV z brazylijskiego marketplace'u i eksportuje je do Parquet. 6-stronicowy raport Power BI czyta te pliki, aby śledzić sprzedaż, klientów, dostawy, sprzedawców, płatności i opinie."},
   stats:[["99.4K",{en:"orders",pl:"zamówień"}],["61",{en:"dbt data tests",pl:"testów danych dbt"}],["6",{en:"report pages",pl:"stron raportu"}],["1:1",{en:"KPIs match source",pl:"KPI zgodne ze źródłem"}]],
   parts:[[{en:"Part 1 · SQL / dbt pipeline",pl:"Część 1 · Pipeline SQL / dbt"},{en:["Staging → intermediate → marts, with types cast once in staging","Moved 20+ DAX calculated columns into SQL, so the DAX became far simpler","Analytics marts: RFM segments, cohort retention, seller Pareto scorecard","dbt build: 85 nodes pass in 8.5 s, including a revenue reconciliation test"],pl:["Warstwy staging → intermediate → marts, typy rzutowane raz w warstwie staging","Przeniesienie ponad 20 kolumn obliczeniowych DAX do SQL, dzięki czemu DAX stał się znacznie prostszy","Marty analityczne: segmenty RFM, retencja kohortowa, scorecard sprzedawców wg zasady Pareto","dbt build: 85 węzłów PASS w 8,5 s, w tym test uzgodnienia przychodów"]}],
@@ -343,8 +344,9 @@ const t=k=>T[lang][k];
 let cur="*";
 
 const plate=(p,i,big)=>{
-  if(p.img&&!big)return '<img class="plate shot'+(p.contain?' contain':'')+'" src="'+esc(p.img)+'" alt="'+esc(L(p.t))+'" loading="lazy">';
-  if(p.img)return [p.img,p.img2].filter(Boolean).map(s=>'<img class="plate shot" src="'+esc(s)+'" alt="'+esc(L(p.t))+'">').join("");
+  const dbt=p.imgDbt&&cur==="SQL & dbt";
+  if(p.img&&!big)return dbt?'<img class="plate shot lineage" src="'+esc(p.imgDbt)+'" alt="dbt lineage: '+esc(L(p.t))+'" loading="lazy">':'<img class="plate shot'+(p.contain?' contain':'')+'" src="'+esc(p.img)+'" alt="'+esc(L(p.t))+'" loading="lazy">';
+  if(p.img)return (dbt?[p.imgDbt,p.img,p.img2]:[p.img,p.img2,p.imgDbt]).filter(Boolean).map(s=>'<img class="plate shot'+(s===p.imgDbt?' lineage':'')+'" src="'+esc(s)+'" alt="'+esc(L(p.t))+'">').join("");
   let s=(i+3)*9301+49297;const r=()=>(s=s*16807%2147483647)/2147483647;let g="";
   if(p.art==="bars"){[.82,.75,.7,.62,.55,.4,.28,.15,.04].forEach((x,k)=>{g+='<rect x="40" y="'+(24+k*33)+'" width="'+(20+x*520)+'" height="22" rx="4" fill="var(--acc)" opacity="'+(1-k*.08).toFixed(2)+'"/>'})}
   else if(p.art==="dots"){const c=[[170,200],[330,120],[460,230]];for(let k=0;k<120;k++){const q=c[k%3],a=r()*6.28,d=r()*70;g+='<circle cx="'+(q[0]+Math.cos(a)*d*1.3).toFixed(1)+'" cy="'+(q[1]+Math.sin(a)*d).toFixed(1)+'" r="'+(4+r()*7).toFixed(1)+'" fill="var(--acc)" opacity="'+[1,.6,.3][k%3]+'"/>'}}
