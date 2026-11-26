@@ -399,7 +399,7 @@ dlg.addEventListener("click",e=>{if(e.target===dlg)dlg.close()});
 
 const toast=$("#toast");let tt;
 const say=m=>{toast.textContent=m;toast.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove("on"),2400)};
-document.querySelectorAll("[data-dl]").forEach(btn=>btn.addEventListener("click",()=>{const a=document.createElement("a");a.href="Anh_Kiet_Bui_Resume.pdf";a.download="Anh_Kiet_Bui_Resume.pdf";document.body.appendChild(a);a.click();a.remove()}));
+document.querySelectorAll("[data-dl]").forEach(btn=>btn.addEventListener("click",()=>{const a=document.createElement("a");a.href="AnhKietBui_CV.pdf";a.download="Anh_Kiet_Bui_Resume.pdf";document.body.appendChild(a);a.click();a.remove()}));
 $("#copyMail").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(EMAIL);say(t("copied")+EMAIL)}catch(e){say(EMAIL)}});
 
 /* live flow field: data in motion, bends away from the pointer */
