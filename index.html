@@ -47,7 +47,7 @@ nav .links a:hover,nav .links a:focus-visible{color:var(--ink)}
 .btn:focus-visible,.chip:focus-visible,.proj:focus-visible,.lang button:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
 .hero{padding-bottom:0}
 .top{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:24px 56px;align-items:center}
-.name{font-size:clamp(52px,8.6vw,118px);line-height:.95}
+.name{font-size:clamp(36px,7.4vw,108px);line-height:.95;white-space:nowrap}
 .role{font-size:clamp(19px,2.1vw,25px);font-weight:600;margin-top:16px}
 .role b{color:var(--acc)}
 .role span{white-space:nowrap}
@@ -161,7 +161,7 @@ dialog .shot{aspect-ratio:auto;height:auto;object-fit:contain;border-bottom:1px 
 .toast{visibility:hidden}
 .toast.on{transform:translate(-50%,0);visibility:visible}
 @media(min-width:900px){.proj.wide{flex-direction:row}.proj.wide .plate{width:56%;aspect-ratio:auto;min-height:360px}.proj.wide .body{width:44%;padding:28px 30px}.proj.wide h3{font-size:28px}}
-@media(max-width:900px){.top,.about,.exp .wrap,.cv,.contact .wrap{grid-template-columns:minmax(0,1fr)}.award{grid-template-columns:minmax(0,1fr)}.award .stage{order:-1}}
+@media(max-width:900px){.name{font-size:min(13vw,96px)}.top,.about,.exp .wrap,.cv,.contact .wrap{grid-template-columns:minmax(0,1fr)}.award{grid-template-columns:minmax(0,1fr)}.award .stage{order:-1}}
 @media(max-width:600px){nav .wrap{gap:4px 14px}nav .links{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap;gap:4px 12px;scrollbar-width:none}nav .links a{flex:none;font-size:14px}.lang button{font-size:13px;padding:0 12px;min-height:34px}.hero .wrap{display:flex;flex-direction:column}.top{display:contents}.top>div:first-child{order:1}.field{order:2;height:250px;margin-top:22px}.intro{order:3;margin-top:24px}.intro p{font-size:16px}.role{font-size:17px}.portrait{top:16px;bottom:auto;width:112px;border-width:5px}.avail{left:16px;right:16px;bottom:16px;max-width:none;font-size:13.5px;padding:10px 14px;line-height:1.4}.jobs>li{grid-template-columns:minmax(0,1fr)}.cert{width:82%;border-width:7px}.trophy{height:96%}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 </style>
